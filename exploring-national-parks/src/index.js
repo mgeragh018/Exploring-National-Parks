@@ -6,6 +6,7 @@
  * The main CSS file is imported and applied to the rendered components.
  * The root element is obtained using ReactDOM.createRoot and the components are rendered inside it.
  * The activitiesDropdown element is commented out.
+ * Michael
  * Performance measurement and analytics functionality are mentioned but not implemented.
  * @file
  * @summary the entry point of the React application
@@ -13,6 +14,7 @@
  * @requires react
  * 
  */
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ParkSearch from './ParkSearch.js';
