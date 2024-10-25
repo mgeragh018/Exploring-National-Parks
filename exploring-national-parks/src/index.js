@@ -37,6 +37,7 @@ root.render(
                 <Route path="/ParkSearch" element={<ParkSearch />} />
                 <Route path="/ParkInfo" element={<ParkInfo />} />
                 <Route path="/ParkPlan" element={<ParkPlan />} />
+                <Route path="/ParkAI" element={<ParkAI/>} />
             </Routes>
             <Footer></Footer>
         </Router>
