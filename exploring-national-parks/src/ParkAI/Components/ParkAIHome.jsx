@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../../Style/parkSearch.css';
+import '../../Style/parkAI.css';
+import { fetchChatGPTResponse } from '../Functionality/FetchChatGPT'; // Importing the new API call
 
 /**
  * Component for welcoming and explaining the park search
@@ -12,6 +13,8 @@ import '../../Style/parkSearch.css';
  */
 const ParkAI = () => {
     const [selectedQuestion, setSelectedQuestion] = useState('');
+    const [result, setResult] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const questions = [
         'What is the largest national park in the USA?',
@@ -30,15 +33,31 @@ const ParkAI = () => {
         setSelectedQuestion(event.target.value);
     };
 
-    return (
-        <div className='park-search-welcome'>
-            <center>
-                <h1 id="search-title">Search for a Park</h1>
+    const handleAskAI = async () => {
+        if (!selectedQuestion) {
+            setResult('Please select a question before asking AI.');
+            return;
+        }
+        
+        setIsLoading(true);
+        try {
+            const response = await fetchChatGPTResponse(selectedQuestion);
+            setResult(response);
+        } catch (error) {
+            setResult('Failed to get a response from AI. Please try again.');
+            console.error(error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
-                <div className="search-about">
-                    <p>
-                        Welcome to the Parks Finder Application! Select an activity below to begin finding the perfect park for you:
-                    </p>
+    return (
+        <div className='park-ai'>
+            <center>
+                <h1 id="ai-title">National Park Trivia</h1>
+
+                <div className="ai-about">
+                    <p>Select a trivia question below and then Ask AI:</p>
 
                     {/* Dropdown for selecting questions */}
                     <select 
@@ -58,6 +77,22 @@ const ParkAI = () => {
                         <p className="selected-question">
                             <strong>Selected Question:</strong> {selectedQuestion}
                         </p>
+                    )}
+
+                    {/* "Ask AI" button */}
+                    <button 
+                        className="ask-ai-button" 
+                        onClick={handleAskAI}
+                        disabled={isLoading}
+                    >
+                        {isLoading ? 'Asking AI...' : 'Ask AI'}
+                    </button>
+
+                    {/* Container for displaying AI response */}
+                    {result && (
+                        <div className="ai-result-container">
+                            <p>{result}</p>
+                        </div>
                     )}
                 </div>
             </center>
