@@ -1,0 +1,78 @@
+.park-ai {
+    background-image: url("../HomePage/Assets/glacier.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: black; /* Changed to solid black */
+    padding: 2rem;
+}
+
+.park-ai #ai-title {
+    position: relative;
+    padding: 5rem;
+    color: black;
+}
+
+.park-ai .ai-about {
+    background: white; /* Changed to solid white */
+    padding: 2rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    color: black;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.park-ai .question-dropdown {
+    width: 60%;
+    padding: 1rem;
+    margin: 1rem 0 0.5rem 0; /* Adjusted margin to align better */
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: white; /* Changed to solid white */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.park-ai .question-dropdown:hover {
+    background-color: #f0f0f0; /* Slightly lighter solid color */
+    cursor: pointer;
+}
+
+.park-ai .selected-question {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white; /* Changed to solid white */
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: black;
+}
+
+.park-ai .ask-ai-button {
+    margin-top: 0.5rem; /* Reduced margin to place button closer to dropdown */
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Changed to a solid blue */
+    color: white;
+    transition: background 0.3s;
+    display: block; /* Ensures the button takes up its space */
+    margin-left: auto; 
+    margin-right: auto; /* Center-aligns the button */
+}
+
+.park-ai .ask-ai-button:hover {
+    background-color: #0056b3; /* Darker solid blue for hover */
+    cursor: pointer;
+}
+
+.park-ai .ai-result-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: white; /* Changed to solid white */
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
